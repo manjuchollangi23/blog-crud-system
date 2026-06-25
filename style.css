@@ -764,8 +764,213 @@ footer{
     border:1px solid #8b5cf6;
 }
 
+/* Search Bar */
+/* Search Form */
 
+.search-form{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:15px;
+    margin:30px 0;
+    flex-wrap:wrap;
+}
 
+.search-form input{
+    width:400px;
+    padding:15px 20px;
+    border:none;
+    border-radius:12px;
+    background:rgba(255,255,255,.08);
+    color:white;
+    font-size:16px;
+    backdrop-filter:blur(10px);
+}
 
+.search-form input::placeholder{
+    color:#cbd5e1;
+}
 
+.search-form input:focus{
+    outline:none;
+    border:1px solid #8b5cf6;
+    box-shadow:0 0 15px rgba(139,92,246,.4);
+}
+
+.search-form button{
+    padding:15px 24px;
+    border:none;
+    border-radius:12px;
+    background:linear-gradient(135deg,#8b5cf6,#6d4aff);
+    color:white;
+    cursor:pointer;
+    font-size:16px;
+    font-weight:600;
+}
+
+.search-form button:hover{
+    transform:translateY(-2px);
+}
+
+.clear-btn{
+    text-decoration:none;
+    padding:15px 24px;
+    border-radius:12px;
+    background:#dc2626;
+    color:white;
+    font-weight:600;
+}
+
+.clear-btn:hover{
+    background:#b91c1c;
+}
+
+.clear-btn{
+    padding:12px 20px;
+    background:#dc3545;
+    color:white;
+    text-decoration:none;
+    border-radius:8px;
+}
+
+.clear-btn:hover{
+    background:#b52b3a;
+}
+/* Pagination */
+
+.pagination{
+    display:flex;
+    justify-content:center;
+    margin-top:40px;
+    gap:10px;
+    flex-wrap:wrap;
+}
+
+.pagination a{
+    text-decoration:none;
+    background:#8b5cf6;
+    color:white;
+    padding:10px 18px;
+    border-radius:8px;
+    transition:.3s;
+}
+
+.pagination a:hover{
+    background:#6d4aff;
+}
+
+.pagination .active{
+    background:#dc2626;
+}
+/* ===== Search Form ===== */
+
+/* ==========================
+   SEARCH BAR
+========================== */
+
+.search-form{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:15px;
+    margin:30px 0;
+    flex-wrap:wrap;
+}
+
+.search-form input{
+    width:420px;
+    padding:15px 18px;
+    border-radius:12px;
+    border:none;
+    background:#ffffff;
+    color:#111827;
+    font-size:16px;
+}
+
+.search-form button{
+    padding:15px 22px;
+    border:none;
+    border-radius:12px;
+    cursor:pointer;
+    background:#8b5cf6;
+    color:white;
+    font-weight:600;
+}
+
+.search-form button:hover{
+    background:#6d4aff;
+}
+
+.clear-btn{
+    background:#ef4444;
+    color:white;
+    padding:15px 22px;
+    text-decoration:none;
+    border-radius:12px;
+    font-weight:600;
+}
+
+.clear-btn:hover{
+    background:#dc2626;
+}
+/* ===== FORCE SEARCH BAR STYLING ===== */
+
+.search-form input{
+    width:400px !important;
+    padding:15px 20px !important;
+    background:rgba(255,255,255,.08) !important;
+    color:#fff !important;
+    border:1px solid rgba(255,255,255,.15) !important;
+    border-radius:12px !important;
+    outline:none !important;
+}
+
+.search-form button{
+    padding:15px 25px !important;
+    background:linear-gradient(135deg,#8b5cf6,#6d4aff) !important;
+    color:#fff !important;
+    border:none !important;
+    border-radius:12px !important;
+    cursor:pointer;
+}
+
+.clear-btn{
+    display:inline-block;
+    padding:15px 25px !important;
+    background:#dc2626 !important;
+    color:#fff !important;
+    text-decoration:none;
+    border-radius:12px !important;
+}
+
+/* ==========================
+   PAGINATION
+========================== */
+
+.pagination{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:12px;
+    margin:40px 0;
+}
+
+.pagination a{
+    text-decoration:none;
+    background:linear-gradient(135deg,#8b5cf6,#6d4aff);
+    color:white;
+    padding:12px 18px;
+    border-radius:10px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.pagination a:hover{
+    transform:translateY(-3px);
+}
+
+.pagination a.active{
+    background:#dc2626 !important;
+    color:white !important;
+}
 

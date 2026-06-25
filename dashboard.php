@@ -89,8 +89,7 @@ if(!isset($_SESSION['username'])){
                 Create New Post
             </a>
 
-            <a href="add_post.php" class="action-btn">
-                Manage Posts
+           <a href="view_posts.php" class="action-btn">Manage Posts</a>
             </a>
 
             <a href="logout.php" class="action-btn logout-btn">
