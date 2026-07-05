@@ -15,6 +15,8 @@ A Blog CRUD Application developed using PHP and MySQL with secure user authentic
 * Update Blog Posts
 * Delete Blog Posts
 * Responsive User Interface
+* Future Enhancements
+*  Developer Information
 
 ## Technologies Used
 
