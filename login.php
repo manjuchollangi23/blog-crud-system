@@ -9,24 +9,29 @@ if(isset($_POST['login'])){
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    $sql = "SELECT * FROM users WHERE username='$username'";
+   $stmt = $conn->prepare("SELECT * FROM users WHERE username=?");
 
-    $result = mysqli_query($conn,$sql);
+$stmt->bind_param("s", $username);
 
-    $user = mysqli_fetch_assoc($result);
+$stmt->execute();
 
-    if($user && password_verify($password,$user['password'])){
+$result = $stmt->get_result();
 
-        $_SESSION['username'] = $username;
+$user = $result->fetch_assoc();
 
-        header("Location: dashboard.php");
-        exit();
+if($user && password_verify($password, $user['password'])){
 
-    }else{
+    $_SESSION['username'] = $user['username'];
+    $_SESSION['role'] = $user['role'];
 
-        $error = "Invalid Username or Password";
+    header("Location: dashboard.php");
+    exit();
 
-    }
+}else{
+
+    $error = "Invalid Username or Password";
+
+}
 }
 ?>
 

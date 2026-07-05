@@ -12,25 +12,28 @@ $message = "";
 
 /* ADD POST */
 
+/* ADD POST */
+
 if(isset($_POST['submit'])){
 
-    $title = mysqli_real_escape_string(
-        $conn,
-        $_POST['title']
-    );
+    $title = trim($_POST['title']);
+    $content = trim($_POST['content']);
 
-    $content = mysqli_real_escape_string(
-        $conn,
-        $_POST['content']
-    );
+    if(empty($title) || empty($content)){
 
-    $sql = "INSERT INTO posts(title, content)
-            VALUES('$title', '$content')";
+        $message = "❌ Title and Content are required.";
 
-    if(mysqli_query($conn, $sql)){
-        $message = "✅ Post Added Successfully!";
     }else{
-        $message = "❌ Error Adding Post!";
+
+        $stmt = $conn->prepare("INSERT INTO posts(title, content) VALUES(?, ?)");
+        $stmt->bind_param("ss", $title, $content);
+
+        if($stmt->execute()){
+            $message = "✅ Post Added Successfully!";
+        }else{
+            $message = "❌ Error Adding Post!";
+        }
+
     }
 }
 
@@ -129,22 +132,26 @@ $result = mysqli_query(
                 <?php echo htmlspecialchars(substr($row['content'],0,180)); ?>...
             </p>
 
-            <div class="actions">
+           <div class="actions">
 
-                <a
-                class="edit-btn"
-                href="edit_post.php?id=<?php echo $row['id']; ?>">
-                Edit
-                </a>
+    <a
+    class="edit-btn"
+    href="edit_post.php?id=<?php echo $row['id']; ?>">
+    Edit
+    </a>
 
-                <a
-                class="delete-btn"
-                href="delete_post.php?id=<?php echo $row['id']; ?>"
-                onclick="return confirm('Delete this post?');">
-                Delete
-                </a>
+    <?php if($_SESSION['role'] == "admin"){ ?>
 
-            </div>
+    <a
+    class="delete-btn"
+    href="delete_post.php?id=<?php echo $row['id']; ?>"
+    onclick="return confirm('Delete this post?');">
+    Delete
+    </a>
+
+    <?php } ?>
+
+</div>
 
         </div>
 

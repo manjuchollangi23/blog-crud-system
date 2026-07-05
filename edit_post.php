@@ -10,12 +10,12 @@ if(!isset($_SESSION['username'])){
 
 $id = (int)$_GET['id'];
 
-$result = mysqli_query(
-    $conn,
-    "SELECT * FROM posts WHERE id=$id"
-);
+$stmt = $conn->prepare("SELECT * FROM posts WHERE id = ?");
+$stmt->bind_param("i", $id);
+$stmt->execute();
 
-$row = mysqli_fetch_assoc($result);
+$result = $stmt->get_result();
+$row = $result->fetch_assoc();
 
 if(!$row){
     header("Location: add_post.php");
@@ -24,26 +24,29 @@ if(!$row){
 
 if(isset($_POST['update'])){
 
-    $title = mysqli_real_escape_string(
-        $conn,
-        $_POST['title']
-    );
+    $title = trim($_POST['title']);
+    $content = trim($_POST['content']);
 
-    $content = mysqli_real_escape_string(
-        $conn,
-        $_POST['content']
-    );
+    if(empty($title) || empty($content)){
 
-    mysqli_query(
-        $conn,
-        "UPDATE posts
-         SET title='$title',
-             content='$content'
-         WHERE id=$id"
-    );
+        echo "❌ Title and Content cannot be empty.";
 
-    header("Location: add_post.php");
-    exit();
+    }else{
+
+        $stmt = $conn->prepare("UPDATE posts SET title=?, content=? WHERE id=?");
+        $stmt->bind_param("ssi", $title, $content, $id);
+
+        if($stmt->execute()){
+
+            header("Location: add_post.php");
+            exit();
+
+        }else{
+
+            echo "❌ Error updating post.";
+
+        }
+    }
 }
 ?>
 

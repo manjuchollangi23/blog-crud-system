@@ -38,10 +38,15 @@ if(!isset($_SESSION['username'])){
     <div class="welcome-card">
 
         <div>
-            <h1>
-                Welcome Back,
-                <?php echo $_SESSION['username']; ?> 👋
-            </h1>
+          <h1>
+    Welcome Back,
+    <?php echo htmlspecialchars($_SESSION['username']); ?> 👋
+</h1>
+
+<p>
+    <strong>Role:</strong>
+    <?php echo ucfirst(htmlspecialchars($_SESSION['role'])); ?>
+</p>
 
             <p>
                 Manage your content, publish new articles,
@@ -54,7 +59,23 @@ if(!isset($_SESSION['username'])){
         </a>
 
     </div>
+<?php if($_SESSION['role'] == "admin"){ ?>
 
+<div class="admin-panel">
+
+    <h2>👑 Admin Panel</h2>
+
+    <p>
+        Welcome Admin! You have full access to manage the BlogCMS.
+    </p>
+
+    <a href="add_post.php" class="admin-btn">
+        Manage All Posts
+    </a>
+
+</div>
+
+<?php } ?>
     <div class="stats-grid">
 
         <div class="stat-card">
@@ -99,6 +120,7 @@ if(!isset($_SESSION['username'])){
         </div>
 
     </div>
+    
 
 </section>
 

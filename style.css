@@ -776,7 +776,7 @@ footer{
     flex-wrap:wrap;
 }
 
-.search-form input{
+.search-form input {
     width:400px;
     padding:15px 20px;
     border:none;
@@ -786,7 +786,40 @@ footer{
     font-size:16px;
     backdrop-filter:blur(10px);
 }
+.admin-panel{
+    background:#fff8dc;
+    border-left:6px solid #ffc107;
+    border-radius:15px;
+    padding:30px;
+    margin:30px 0;
+}
 
+.admin-panel h2{
+    color:#8a5a00;
+    margin-bottom:15px;
+}
+
+.admin-panel p{
+    color:#333;
+    font-size:20px;
+    margin-bottom:25px;
+    line-height:1.6;
+}
+
+.admin-btn{
+    display:inline-block;
+    padding:15px 30px;
+    background:#6c4df6;
+    color:#fff;
+    text-decoration:none;
+    border-radius:10px;
+    font-size:18px;
+    font-weight:600;
+}
+
+.admin-btn:hover{
+    background:#5738e6;
+}
 .search-form input::placeholder{
     color:#cbd5e1;
 }
