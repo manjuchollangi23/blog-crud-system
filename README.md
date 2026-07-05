@@ -1,54 +1,129 @@
-# Blog CRUD System
+# 🛡️ Blog CRUD Application
 
-## Overview
+##  Overview
 
-A Blog CRUD Application developed using PHP and MySQL with secure user authentication. Users can register, log in, and manage blog posts through Create, Read, Update, and Delete operations.
+A secure Blog CRUD Application developed using **PHP** and **MySQL** with user authentication and role-based access control. Users can register, log in, and manage blog posts through Create, Read, Update, and Delete (CRUD) operations. The application follows secure coding practices, including password hashing, prepared statements, and session management.
 
-## Features
+---
 
-* User Registration
-* User Login & Logout
-* Password Hashing
-* Session Management
-* Create Blog Posts
-* View Blog Posts
-* Update Blog Posts
-* Delete Blog Posts
-* Responsive User Interface
-* Future Enhancements
-*  Developer Information
+##  Features
 
-## Technologies Used
+### User Authentication
+- User Registration
+- User Login & Logout
+- Password Hashing (`password_hash()`)
+- Password Verification (`password_verify()`)
+- Session Management
 
-* PHP
-* MySQL
-* HTML
-* CSS
-* XAMPP
+### Blog Management
+- Create Blog Posts
+- View Blog Posts
+- Update Blog Posts
+- Delete Blog Posts
 
-## Project Structure
+### Security Enhancements
+- Prepared Statements (SQL Injection Protection)
+- XSS Protection using `htmlspecialchars()`
+- Client-side Form Validation
+- Server-side Form Validation
+- Secure Session Handling
 
-* index.php
-* register.php
-* login.php
-* logout.php
-* dashboard.php
-* add_post.php
-* edit_post.php
-* delete_post.php
-* db.php
-* style.css
+### User Roles
+- Admin Role
+- Editor Role
+- Role-Based Access Control (RBAC)
+- Admin-only Delete Permission
+- Admin Dashboard
 
-## How to Run
+### Additional Features
+- Search Functionality
+- Pagination
+- Responsive User Interface
 
-1. Start Apache and MySQL in XAMPP.
-2. Create the database in phpMyAdmin.
-3. Import the required tables.
-4. Place the project folder inside `htdocs`.
-5. Open:
+---
 
-   http://localhost/blog-crud/index.php
+## 🛠️ Technologies Used
 
-## Internship Task
+- PHP
+- MySQL
+- HTML5
+- CSS3
+- JavaScript
+- XAMPP
+- Git & GitHub
 
-This project was developed as Task 2 of the ApexPlanet Software Pvt Ltd Web Development Internship Program.
+---
+
+## 📁 Project Structure
+
+```
+blog_system_task4/
+│── index.php
+│── register.php
+│── login.php
+│── logout.php
+│── dashboard.php
+│── add_post.php
+│── edit_post.php
+│── delete_post.php
+│── db.php
+│── style.css
+```
+
+---
+
+## ▶️ How to Run
+
+1. Install XAMPP.
+2. Start **Apache** and **MySQL**.
+3. Open **phpMyAdmin**.
+4. Create a database named `blog`.
+5. Import the SQL file into the database.
+6. Place the project folder inside the **htdocs** directory.
+7. Open your browser and visit:
+
+```
+http://localhost/blog_system_task4/
+```
+
+---
+
+## 🔒 Security Features
+
+- Password Hashing
+- Password Verification
+- SQL Injection Prevention
+- Cross-Site Scripting (XSS) Protection
+- Session Authentication
+- Role-Based Authorization
+- Secure CRUD Operations
+
+---
+
+##  Internship Progress
+
+Completed as part of the **ApexPlanet Software Pvt. Ltd. Web Development Internship**.
+
+### Tasks Completed
+
+- ✅ Task 1 – BlogCMS Setup
+- ✅ Task 2 – CRUD Operations
+- ✅ Task 3 – Search Functionality & Pagination
+- ✅ Task 4 – Security Enhancements
+
+---
+
+##  Future Enhancements
+
+- Image Upload Support
+- Rich Text Editor
+- Categories & Tags
+- Comments System
+- User Profile Management
+- Password Reset via Email
+- REST API Integration
+- Dark/Light Theme
+
+---
+
+⭐ If you like this project, consider giving it a star on GitHub.
